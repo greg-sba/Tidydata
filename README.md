@@ -52,9 +52,13 @@ The R script, called run_analysis.R, must do the following.
 
 The R Script
 ===============================================================================================================
+This script assumes that all necessary files are located in the working directory.
 
+In the first stage of the script the variable names file (features.txt) is read into R. Next the test (x_test.txt) and training (x_test.txt) datasets are read and the variable names are added to each.  Finally the test and training sets are combined into a sinlge file using rbind().  The resulting file is named df.
 
+*Note: see the Codebook for detailed explanation of the variables.
 
+In stage 2 activity labels are added to df as a new variable.  Activity labels indicate which activity the measurement relates to.  The six activities are: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING.  
 
 
 
