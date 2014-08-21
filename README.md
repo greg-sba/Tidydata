@@ -56,18 +56,16 @@ This script assumes that all necessary files are located in the working director
 
 In the first stage of the script the variable names file (features.txt) is read into R. Next the test (x_test.txt) and training (x_test.txt) datasets are read and the variable names are added to each.  Finally the test and training sets are combined into a sinlge file using rbind().  The resulting file is named df.
 
-*Note: see the Codebook for detailed explanation of the variables.
+*Note on variables:  The associated Codebook provides detailed explanation of the variables.  In creating the tidydata file I decided to leave the variable names as they are rather than clean them up as demonstrated in the video lecture.  My reason for this is that I feel any modifications such as using all lowercase and removing "_" and "-" would lead to variable names which are less readable and more confusing. The current variable names are already quite long and I did not want to make them longer.  Also changing them might lead to confusion when comparing to the original features.txt file.    
 
-In stage 2 activity labels are added to df as a new variable.  Activity labels indicate which activity the measurement relates to.  The six activities are: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING.  
+In stage 2 activity labels (y_test.txt and y_train.txt) are read into R and joined into a single labels file using rbind(). The labels column is added to df as a new variable named Activity and the resulting file is named combined_df. The activity labels are loaded as numbers indicating which activity the observation/measurement relates to.  The six activities are: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING. Finally the number codes are updated to the descriptive names. 
+
+In stage 3 subject codes are added to the data file.  The study used 30 volunteers and each was assigned a number 1-30. The initial files (subject_test.txt and subject_train.txt) are read into R and combined into a single file called sub. They are assigned the variable name "Subject" and added as a new variable to the combined_df file resulting in a new file called "data."
 
 
 
 
 
-During the course of the project:
 
--the test set and training set of data were merged into a single dataset.
 
--the features.txt file which included variables names was loaded as a header to the final dataset.
-
--the activity_labels.txt file   
+ 
