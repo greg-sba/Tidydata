@@ -28,11 +28,14 @@ sub <- rbind(sub_test, sub_train)
 colnames(sub) <- "Subject"
 data <- cbind(sub, combined_df)
 
-#Make the variable names tidy.
+#Clean up variables
+lowdat <- tolower(names(data))
+
 
 
 #Extract measurements on the mean and standard deviation for each measurement
-x <- data[ , grepl("mean()", data$names)]
+tidydata1 <- data[ , grep("Subject|Activity|mean|std", names(data))]
+
 
 
 
