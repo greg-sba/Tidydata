@@ -145,7 +145,7 @@ Column         Variable Name_Description 	Values or Explanation
 	Standard deviation of the frequency domain signal of the body acceleration in the x-axis (in xyz space) 		direction.
 
 47	fBodyAcc-std()-Y			Normalized value from -1 to 1
-	Standard deviation of the frequency domain signal of the body acceleration in the y-axis (in xyz space) direction.
+	Standard deviation of the frequency domain signal of the body acceleration in the y-axis (in xyz space) 		direction.
 
 48	fBodyAcc-std()-Z			Normalized value from -1 to 1
 	Standard deviation of the frequency domain signal of the body acceleration in the z-axis (in xyz space) 		direction.
