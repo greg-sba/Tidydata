@@ -4,6 +4,8 @@ author: "Greg Charles"
 date: "Friday, August 22, 2014"
 output: word_document
 ---
+				Variables for Tidydata1 and Tidydata2 
+
 Column         Variable Name_Description 	Values or Explanation
 
 1 	Subject			Values from 1 - 30
@@ -248,4 +250,35 @@ Column         Variable Name_Description 	Values or Explanation
 
 81	fBodyBodyGyroJerkMag-meanFreq()Normalized value from -1 to 1
 	Mean frequency of the frequency domain signal of the body linear acceleration, angular velocity and magnitute.
+======================================================================================================================
+Background on original data and transformations
 
+The data which will be used for the project were obtained from the following study:
+
+Human Activity Recognition Using Smartphones Dataset Version 1.0 Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto. Smartlab - Non Linear Complex Systems Laboratory DITEN - Università degli Studi di Genova. Via Opera Pia 11A, I-16145, Genoa, Italy. activityrecognition@smartlab.ws www.smartlab.ws
+
+In the study, experiments were carried out with a group of 30 volunteers within an age bracket of 19-48 years. Each person performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING) wearing a smartphone (Samsung Galaxy S II) on the waist. Using its embedded accelerometer and gyroscope, we captured 3-axial linear acceleration and 3-axial angular velocity at a constant rate of 50Hz. The obtained dataset was randomly partitioned into two sets, where 70% of the volunteers was selected for generating the training data and 30% the test data.
+
+The original files obtained from the study include:
+
+    'README.txt'
+
+    'features_info.txt': Shows information about the variables used on the feature vector.
+
+    'features.txt': List of all features.
+
+    'activity_labels.txt': Links the class labels with their activity name.
+
+    'train/X_train.txt': Training set.
+
+    'train/y_train.txt': Training labels.
+
+    'test/X_test.txt': Test set.
+
+    'test/y_test.txt': Test labels.
+
+When the original data were combined into a single data frame it had 10,299 rows(observations) and 561 variables.
+
+Tidydata1 - this file contains 10,299 observations and 81 variables.  It was created by selecting only variables that contain the words Subject, Activity, mean or std in the name. (according to step 2 in the instructions).  These data contain the original measurements captured during the course of the original study.
+
+Tidydata2 - this file contains 180 rows (30 subjects x 6 activities) and 81 variables.  It was created using the package "reshape2" and using functions "melt" and "dcast" to calculate means of the measurement variables (3:81) identified by Subject and Activity.  These data contain the mean values calculated on the original observation data.  
