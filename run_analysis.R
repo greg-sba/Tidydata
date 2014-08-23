@@ -28,18 +28,16 @@ sub <- rbind(sub_test, sub_train)
 colnames(sub) <- "Subject"
 data <- cbind(sub, combined_df)
 
-#Clean up variables
-lowdat <- tolower(names(data))
-
-
-
 #Extract measurements on the mean and standard deviation for each measurement
 tidydata1 <- data[ , grep("Subject|Activity|mean|std", names(data))]
 
+#Save tidydata1 as a text file.
+write.table(tidydata1, file="tidydata1.txt", row.names=FALSE)
 
+#Create a second, independent tidy data set with the average of #each variable for each activity and each subject.  Install reshape2 package. Save tidydata2 #as a text file.
+install.packages("reshape2")
+library(reshape2)
 
-
-
-
-#Create a second, independent tidy data set with the average of each variable for each activity and each subject
+melted <- melt(tidydata1, id.vars=c("Subject", "Activity"))
+tidydata2 <- dcast(melted, Subject + Activity ~ variable, mean)
 
