@@ -50,17 +50,26 @@ The R script, called run_analysis.R, must do the following.
 4) Appropriately label the data set with descriptive variable names. 
 5) Create a second, independent tidy data set with the average of each variable for each activity and each subject. 
 
-The R Script
+Explanation of the R Script
 ===============================================================================================================
 This script assumes that all necessary files are located in the working directory.
 
-In the first stage of the script the variable names file (features.txt) is read into R. Next the test (x_test.txt) and training (x_test.txt) datasets are read and the variable names are added to each.  Finally the test and training sets are combined into a sinlge file using rbind().  The resulting file is named df.
+In the first stage of the script the variable names file (features.txt) is read into R. Next the test (x_test.txt) and training (x_test.txt) datasets are read and the variable names are added to each.  Finally the test and training sets are combined into a sinlge file using rbind().  The resulting file is named "df".
 
 *Note on variables:  The associated Codebook provides detailed explanation of the variables.  In creating the tidydata file I decided to leave the variable names as they are rather than clean them up as demonstrated in the video lecture.  My reason for this is that I feel any modifications such as using all lowercase and removing "_" and "-" would lead to variable names which are less readable and more confusing. The current variable names are already quite long and I did not want to make them longer.  Also changing them might lead to confusion when comparing to the original features.txt file.    
 
-In stage 2 activity labels (y_test.txt and y_train.txt) are read into R and joined into a single labels file using rbind(). The labels column is added to df as a new variable named Activity and the resulting file is named combined_df. The activity labels are loaded as numbers indicating which activity the observation/measurement relates to.  The six activities are: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING. Finally the number codes are updated to the descriptive names. 
+In stage 2 activity labels (y_test.txt and y_train.txt) are read into R and joined into a single labels file using rbind(). The labels column is added to "df" as a new variable named Activity and the resulting file is named "combined_df". The activity labels are loaded as numbers indicating which activity the observation/measurement relates to.  The six activities are: WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING. Finally the number codes are updated to the descriptive names. 
 
-In stage 3 subject codes are added to the data file.  The study used 30 volunteers and each was assigned a number 1-30. The initial files (subject_test.txt and subject_train.txt) are read into R and combined into a single file called sub. They are assigned the variable name "Subject" and added as a new variable to the combined_df file resulting in a new file called "data."
+In stage 3 subject codes are added to the data file.  The study used 30 volunteers and each was assigned a number 1-30. The initial files (subject_test.txt and subject_train.txt) are read into R and combined into a single file called "sub". They are assigned the variable name "Subject" and added as a new variable to the "combined_df" file resulting in a new file called "data."
+
+In the next stage, we extract measurements on the mean and standard deviation for each measurement.  This is completed using the grep function and selecting only variables which include the words Subject, Activity, mean and std.  The resulting data file is called "tidydata1" and has a total of 81 variables. Finally, "tidydata1" is written to a text file and posted in the answer box for the project on the Coursera website.
+
+In the final stage a second, independent tidy data set is created which includes the average of each variable for each subject and activity.  We begin this process by installing the "reshape2" package for R and load the library.  This package enables us to make use of the "melt" and "dcast" functions to reshape the data.  We then melt the tidydata1 data using id variables "Subject" and "Activity."  Next using dcast, we calculate the mean for each measurement variable. The resulting data file, "tidydata2," is written to a text file and posted in the answer box for the project on the Coursera website.
+
+Both "tidydata1" and "tidydata2" were prepared in accordance with the rules for tidy data sets including:
+1) Each variable measured is in one column.
+2) Each different observation of a variable is in a different row.
+3) The data table includes only one "kind" of data.
 
 
 
