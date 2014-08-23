@@ -4,8 +4,8 @@ author: "Greg Charles"
 date: "Friday, August 22, 2014"
 output: word_document
 ---
-				Variables for Tidydata1 and Tidydata2 
-
+Variables for Tidydata1 and Tidydata2 
+====================================================================================================================
 Column         Variable Name_Description 	Values or Explanation
 
 1 	Subject			Values from 1 - 30
@@ -250,9 +250,9 @@ Column         Variable Name_Description 	Values or Explanation
 
 81	fBodyBodyGyroJerkMag-meanFreq()Normalized value from -1 to 1
 	Mean frequency of the frequency domain signal of the body linear acceleration, angular velocity and magnitute.
-======================================================================================================================
-Background on original data and transformations
 
+Background on original data and transformations
+=======================================================================================================================
 The data which will be used for the project were obtained from the following study:
 
 Human Activity Recognition Using Smartphones Dataset Version 1.0 Jorge L. Reyes-Ortiz, Davide Anguita, Alessandro Ghio, Luca Oneto. Smartlab - Non Linear Complex Systems Laboratory DITEN - Università degli Studi di Genova. Via Opera Pia 11A, I-16145, Genoa, Italy. activityrecognition@smartlab.ws www.smartlab.ws
